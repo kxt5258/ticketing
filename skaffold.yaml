@@ -22,5 +22,21 @@ build:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: /**/*.ts'
+          - src: /**/*.js'
+            dest: .
+    - image: kxt5258/tickets
+      context: tickets
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: kxt5258/orders
+      context: orders
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
             dest: .
