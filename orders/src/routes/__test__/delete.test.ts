@@ -1,4 +1,5 @@
 import request from 'supertest';
+import mongoose from 'mongoose';
 import { app } from '../../app';
 import { Ticket } from '../../models/ticket';
 import { Order, OrderStatus } from '../../models/order';
@@ -6,7 +7,7 @@ import { natsWrapper } from '../../nats-wrapper';
 
 it('deletes the order as expected', async () => {
   const ticket = Ticket.build({
-    id: 'djsdkjsd',
+    id: mongoose.Types.ObjectId().toHexString(),
     title: 'Test',
     price: 20,
   });
@@ -32,7 +33,7 @@ it('deletes the order as expected', async () => {
 
 it('Emit OrderCancelled event', async () => {
   const ticket = Ticket.build({
-    id: 'djsdkjsd',
+    id: mongoose.Types.ObjectId().toHexString(),
     title: 'Test',
     price: 20,
   });
