@@ -1,0 +1,6 @@
+// //Fake implementation of Stripe
+export const stripe = {
+  charges: {
+    create: jest.fn().mockResolvedValue({}),
+  },
+};
